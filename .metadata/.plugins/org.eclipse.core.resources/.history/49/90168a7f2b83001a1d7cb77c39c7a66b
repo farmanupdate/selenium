@@ -1,0 +1,32 @@
+package EndtoEndTesting;
+
+import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.FindBy;
+
+public class storeObjects {
+	
+	static ChromeDriver chrome;
+	
+	@FindBy(name="user_login")
+	WebElement un;
+	
+	@FindBy(name="user_password")
+	WebElement pass;
+	
+	@FindBy(name="submit")
+	WebElement Lbtn;
+	
+	public void logintest()
+	{
+		un.sendKeys("username");
+		pass.sendKeys("password");
+		Lbtn.click();
+		String HomePage = "LOGIN Panel";
+		String HomePageActual = chrome.findElement(By.xpath("//*[@id=\"logInPanelHeading\"]")).getText();
+		Assert.assertEquals(HomePage,HomePageActual);
+	}
+
+}

@@ -1,0 +1,77 @@
+package SeleniumJava;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.concurrent.TimeUnit;
+
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.formula.functions.Column;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.By;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
+
+
+public class WorkingwithExcel {
+	static ChromeDriver chrome;	
+  @Test
+  public void Exceldemo() throws Exception
+  {
+	  FileInputStream ReadExcelData = new FileInputStream("M:\\SDET Training\\SeleniumExcel.xlsx");
+	  
+	  XSSFWorkbook book1 = new XSSFWorkbook(ReadExcelData);
+	  
+	  Sheet sh = book1.getSheetAt(0);
+	  
+	  Row r1 = sh.getRow(0);
+	  
+	  int rowNum = sh.getLastRowNum();
+	  System.out.println(rowNum);
+	  int colNum = r1.getLastCellNum();
+	  System.out.println(colNum);
+	  
+	  System.setProperty("webdriver.chrome.driver","M:\\SDET Training\\chromedriver_win32\\chromedriver.exe");
+	  chrome = new ChromeDriver();
+		
+	  chrome.get("https://opensource-demo.orangehrmlive.com/");
+	  chrome.manage().window().maximize();  
+	  chrome.manage().timeouts().implicitlyWait(5000, TimeUnit.MILLISECONDS);		  
+	  
+	  for(int row=0;row<=rowNum;row++)
+	  {
+		  Row r = sh.getRow(row);
+		  
+		  for(int cell=0; cell<colNum-1; cell++)
+		  {
+			  String Value = r.getCell(cell).getStringCellValue();
+			  System.out.println("The Excel Value is : " + Value);
+			  String Value1 = r.getCell(cell+1).getStringCellValue();
+			  System.out.println("The password: " + Value1);
+			  chrome.findElement(By.id("txtUsername")).sendKeys(Value);	
+			  chrome.findElement(By.id("txtPassword")).sendKeys(Value1);
+			  chrome.findElement(By.name("Submit")).click();
+			  		  
+				  try
+				  {
+					  chrome.findElement(By.id("welcome")).click();
+					  chrome.findElement(By.xpath("//*[@id='welcome-menu']/ul/li[2]/a")).click();
+					  System.out.println("Logged out Successfully");
+				  }
+				  catch (Exception e) 
+				  {		  
+					  e.printStackTrace();
+					  System.out.println("Home screen not found");
+				  }	  
+			  
+	      }
+		  
+	   }
+	  
+    }
+  
+ }
+
+	  	  
+  
+

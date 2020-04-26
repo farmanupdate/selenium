@@ -1,0 +1,9 @@
+package JenkinsPackage;
+
+import org.testng.annotations.Test;
+
+public class JenkinsTestNGClass {
+  @Test
+  public void f() {
+  }
+}

@@ -1,0 +1,25 @@
+package storeOrangeHRMPages;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
+public class LoginPageTest {
+	
+	@Given("Browser Open")
+	public void Browser_Open() {
+
+	}
+
+	@When("I enter URL")
+	public void I_enter_URL() {
+
+	}
+	
+	@Then("Check if login page is displayed")
+	public void Check_if_login_page_is_displayed() {
+
+	}
+	
+
+}

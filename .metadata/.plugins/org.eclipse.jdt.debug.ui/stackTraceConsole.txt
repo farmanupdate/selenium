@@ -1,0 +1,18 @@
+io.cucumber.junit.UndefinedStepException: The step "i hover mouse on admin" is undefined. You can implement it using the snippet(s) below:
+
+@When("i hover mouse on admin")
+public void i_hover_mouse_on_admin() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+Some other steps were also undefined:
+
+@Then("the suboptions should be displayed")
+public void the_suboptions_should_be_displayed() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+

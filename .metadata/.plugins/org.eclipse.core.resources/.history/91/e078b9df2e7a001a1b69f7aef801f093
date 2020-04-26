@@ -1,0 +1,9 @@
+package SeleniumJava;
+
+import org.testng.annotations.Test;
+
+public class StoreDataProvider {
+  @Test
+  public void f() {
+  }
+}

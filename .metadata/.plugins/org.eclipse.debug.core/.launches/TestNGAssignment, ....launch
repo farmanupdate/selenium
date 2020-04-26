@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.testng.eclipse.launchconfig">
+    <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="org.testng.remote.RemoteTestNG"/>
+    <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="SDET_Java_Selenium"/>
+    <mapAttribute key="org.testng.eclipse.ALL_CLASS_METHODS"/>
+    <listAttribute key="org.testng.eclipse.CLASS_TEST_LIST">
+        <listEntry value="SeleniumJava.PropertiesDemo"/>
+        <listEntry value="SeleniumJava.Test1"/>
+        <listEntry value="SeleniumJava.LoginTest"/>
+        <listEntry value="SeleniumJava.Test2"/>
+        <listEntry value="SeleniumJava.Test3"/>
+        <listEntry value="SeleniumJava.AssertionDemo"/>
+        <listEntry value="SeleniumJava.Workingwithxml"/>
+        <listEntry value="SeleniumJava.WorkingwithExcel"/>
+        <listEntry value="SeleniumJava.TestNGAssignment"/>
+        <listEntry value="SeleniumJava.TestNGDemo"/>
+    </listAttribute>
+    <listAttribute key="org.testng.eclipse.METHOD_TEST_LIST"/>
+    <listAttribute key="org.testng.eclipse.PACKAGE_TEST_LIST"/>
+    <stringAttribute key="org.testng.eclipse.PRE_DEFINED_LISTENERS" value=""/>
+    <intAttribute key="org.testng.eclipse.TYPE" value="1"/>
+</launchConfiguration>

@@ -1,0 +1,13 @@
+package runOrangeHRMPages;
+
+import org.junit.runner.RunWith;
+
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
+
+@RunWith(Cucumber.class)
+//@CucumberOptions(features="storeOrangeHRMPages/DemoForHook.feature", glue= {"storeOrangeHRMPages"}, plugin = {"html:ResultsNew","pretty"}, monochrome = true )
+@CucumberOptions(features="Framework", glue= {"storeOrangeHRMPages"}, tags = {"@demo2"}, plugin = {"html:ResultsNew","pretty"}, monochrome = true )
+public class runnerClass {
+
+}

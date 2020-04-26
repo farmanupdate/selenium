@@ -1,0 +1,121 @@
+package EndtoEndTesting;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
+
+import POMTest.storePageObjects;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
+public class endToendTestingZeroWebsite {
+	
+	static ChromeDriver chrome;
+	static storePageObjects objects;
+
+	@Given("Open the browser")
+	public void open_the_browser() 
+	{
+		System.setProperty("webdriver.chrome.driver","M:\\SDET Training\\chromedriver_win32\\chromedriver.exe");
+		
+		chrome = new ChromeDriver();
+		chrome.manage().window().maximize(); 
+		System.out.println("Browser launched successfully");
+
+	}
+
+	@And("Enter the URL and login credentials")
+	public void Enter_the_URL_and_login_credentials() throws Exception
+	{
+		chrome.get("http://zero.webappsecurity.com/login.html");
+		chrome.manage().timeouts().implicitlyWait(5000, TimeUnit.MILLISECONDS);
+		System.out.println("Website launched successfully");
+		
+		storePageObjects objects = PageFactory.initElements(chrome, storePageObjects.class);
+		
+		try
+		{
+			objects.logintest();
+			
+		}
+		
+		catch(Exception Exp)
+		{
+			Exp.printStackTrace();
+			System.out.println("Login failed");
+		}
+		
+	}
+
+	@Then("Check transaction page appears")
+	public void check_transaction_page_appears() 
+	{
+		
+		objects.transactionPage();
+	}
+
+	@When("Clicking on transfer funds tab")
+	public void clicking_on_transfer_funds_tab() {
+
+	}
+
+	@Then("Check if the transfer money and make payments page appears")
+	public void check_if_the_transfer_money_and_make_payments_page_appears() {
+
+	}
+
+	@Then("Check if all the accounts are listed in From drop down")
+	public void check_if_all_the_accounts_are_listed_in_From_drop_down() {
+
+	}
+
+	@Then("Check if all the accounts are listed in To drop down")
+	public void check_if_all_the_accounts_are_listed_in_To_drop_down() {
+
+	}
+
+	@When("Select the From Account")
+	public void select_the_From_Account() {
+
+	}
+
+	@When("Select the To Account")
+	public void select_the_To_Account() {
+
+	}
+
+	@When("Enter the amount and description")
+	public void enter_the_amount_and_description() {
+
+	}
+
+	@When("Click on Submit button")
+	public void click_on_Submit_button() {
+
+	}
+
+	@Then("Check if verify page is displayed")
+	public void check_if_verify_page_is_displayed() {
+
+	}
+
+	@Then("Click on Submit")
+	public void click_on_Submit() {
+
+	}
+
+	@Then("Check if confirmation page is displayed with message")
+	public void check_if_confirmation_page_is_displayed_with_message() {
+
+	}
+
+	@When("logout and close the browser")
+	public void logout_and_close_the_browser() {
+
+	}
+
+
+}

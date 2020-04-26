@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]">
+  <test name="Test(failed)">
+    <parameter name="pwd1" value="user_password"/>
+    <parameter name="Homepage" value="//*[@id=&#039;online_statements_tab&#039;]"/>
+    <parameter name="logout" value="logout_link"/>
+    <parameter name="loginbtn" value="submit"/>
+    <parameter name="signbtn" value="signin_button"/>
+    <parameter name="un" value="user_login"/>
+    <parameter name="un1" value="user_login"/>
+    <parameter name="pwd" value="user_password"/>
+    <parameter name="user" value="//*[@id=&#039;settingsBox&#039;]/ul/li[3]/a"/>
+    <classes>
+      <class name="SeleniumJava.TestNGAssignment">
+        <methods>
+          <include name="TestHomepage1"/>
+          <include name="TestLoginInvalid" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- SeleniumJava.TestNGAssignment -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->

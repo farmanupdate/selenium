@@ -1,0 +1,27 @@
+package storeOrangeHRMPages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
+public class LeavePageTest {
+	
+	@When("I hover mouse on leave")
+	public void I_hover_mouse_on_leave() 
+	{
+		
+		
+		
+	}
+	
+	@Then("the leave suboptions should be displayed")
+	public void the_leave_suboptions_should_be_displayed() 
+	{
+		
+		System.out.println("Suboptions are displayed");
+		
+	}
+
+}

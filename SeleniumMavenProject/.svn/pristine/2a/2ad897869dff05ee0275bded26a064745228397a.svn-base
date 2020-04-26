@@ -1,0 +1,15 @@
+storeOrangeHRMPages\LoginPageTest.class
+storeOrangeHRMPages\AdminPageTest.class
+runnerpackage\RunOrangeHRMTest.class
+runnerpackage\RunnerClassForLogin.class
+EndtoEndTesting\endToendTestingZeroWebsite.class
+runnerpackage\RunnerClassOrangeHRM.class
+storeOrangeHRMPages\HookTest.class
+POMTest\zeroLoginTest.class
+POMTest\storePageObjects.class
+runOrangeHRMPages\runnerClass.class
+storeOrangeHRMPages\LeavePageTest.class
+stepsdefinition\DefinitionClassForOrangeHRM.class
+storeOrangeHRMPages\BeforeNAfterTest.class
+EndtoEndTesting\storeObjects.class
+stepsdefinition\DefinitionClass2.class

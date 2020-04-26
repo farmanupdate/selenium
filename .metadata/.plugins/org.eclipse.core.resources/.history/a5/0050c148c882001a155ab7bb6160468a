@@ -1,0 +1,36 @@
+package storeOrangeHRMPages;
+
+import java.util.concurrent.TimeUnit;
+
+import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
+public class AdminPageTest {
+	
+	static ChromeDriver chrome;
+	
+	@When("i hover mouse on admin")
+	public void i_hover_mouse_on_admin() 
+	{
+		WebElement admin = chrome.findElement(By.id("menu_admin_viewAdminModule"));
+		
+		
+		
+		chrome.get("https://opensource-demo.orangehrmlive.com/");
+		chrome.manage().timeouts().implicitlyWait(5000, TimeUnit.MILLISECONDS);
+		System.out.println("Website launched successfully");
+	}
+	
+	@Then("the suboptions should be displayed")
+	public void the_suboptions_should_be_displayed() 
+	{
+		String LoginPanel = "LOGIN Panel";
+		String LoginPanelActual = chrome.findElement(By.xpath("//*[@id=\"logInPanelHeading\"]")).getText();
+		Assert.assertEquals(LoginPanel,LoginPanelActual);
+		System.out.println("Login page is launched successfull");
+
+}

@@ -1,0 +1,30 @@
+package SeleniumJava;
+
+import org.testng.annotations.Test;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.DataProvider;
+
+public class DemoDataProvider {
+  @Test(dataProvider = "dpTest")
+  public void f(Integer uname, String pass) {
+	  System.out.println(uname + "" +pass);
+	  
+	  System.setProperty("webdriver.chrome.driver","M:\\SDET Training\\chromedriver_win32\\chromedriver.exe");
+	  ChromeDriver = new ChromeDriver();
+		
+	  chrome.get("https://opensource-demo.orangehrmlive.com/");
+	  chrome.manage().window().maximize();  
+	  chrome.manage().timeouts().implicitlyWait(5000, TimeUnit.MILLISECONDS);	
+  }
+
+  @DataProvider(name = "dpTest")
+  public Object[][] dp() {
+    return new Object[][] {
+      new Object[] { 1, "a" },
+      new Object[] { 2, "b" },
+    };
+  }
+}

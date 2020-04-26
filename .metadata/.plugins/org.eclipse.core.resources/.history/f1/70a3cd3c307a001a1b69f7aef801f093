@@ -1,0 +1,16 @@
+package SeleniumJava;
+
+import org.testng.annotations.Test;
+
+public class UsingDataProvider {
+  @Test(DataProvider = "dpTest", dataProviderClass=StoreDataProvider.class)
+  
+  public void UsingDP(String S1, String S2) {
+	  
+	  
+	  
+	  
+	  
+	  
+  }
+}

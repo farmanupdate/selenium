@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite parallel="false" name="Suite">
+  <test name="Test">
+  
+  <parameter name="signbtn" value = "signin_button"/>
+  <parameter name="un" value = "user_login"/>
+  <parameter name="pwd" value = "user_password"/>
+  <parameter name="loginbtn" value = "submit"/>
+  <parameter name="Homepage" value ="//*[@id='online_statements_tab']"/>
+  
+  !--Logout parameters
+  <parameter name="user" value = "//*[@id='settingsBox']/ul/li[3]/a"/>
+  <parameter name="logout" value = "logout_link"/>
+  
+  !--Invalid credentials
+  <parameter name="un1" value = "user_login"/>
+  <parameter name="pwd1" value = "user_password"/>
+  
+  !--Checking types of accounts with their balances
+  <parameter name="CA" value = "/html/body/div[1]/div[2]/div/div[2]/div/div/h2[1]"/>
+  <parameter name="un1" value = "user_login"/>
+  <parameter name="un1" value = "user_login"/>
+  <parameter name="un1" value = "user_login"/>
+  <parameter name="un1" value = "user_login"/>
+  
+  
+    <classes>
+      <class name="SeleniumJava.TestNGAssignment"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

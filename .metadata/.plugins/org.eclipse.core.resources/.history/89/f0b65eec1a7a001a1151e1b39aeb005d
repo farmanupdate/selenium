@@ -1,0 +1,31 @@
+package SeleniumJava;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+public class WriteToExcel {
+	
+	public static void main(String[] args) throws Exception 
+	{
+	
+	String file = "M:\\SDET Training\\SeleniumExcelNew.xlsx";
+	File fl = new File(file);
+	FileInputStream readExcelFileData = new FileInputStream("M:\\SDET Training\\SeleniumExcel.xlsx");
+	XSSFWorkbook book1 = new XSSFWorkbook(readExcelFileData);
+	Sheet sh = book1.getSheetAt(0);
+	sh.createRow(5).createCell(2).setCellValue("Testing");
+	
+	FileOutputStream f = new FileOutputStream(new File ("M:\\SDET Training\\SeleniumWriteExcel.xlsx"));
+	
+	book1.write(f);
+	System.out.println("Data Inserted");
+
+	
+   }
+	
+}

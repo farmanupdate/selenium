@@ -1,0 +1,218 @@
+package EndtoEndTesting;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.By.ByCssSelector;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import POMTest.storePageObjects;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
+public class endToendTestingZeroWebsite {
+	
+	static ChromeDriver chrome;
+	storeObjects objects;
+	static List<WebElement> FromAccTypes;
+	static XSSFWorkbook book1;
+
+	@Given("Open the browser")
+	public void open_the_browser() 
+	{
+		System.setProperty("webdriver.chrome.driver","M:\\SDET Training\\chromedriver_win32\\chromedriver.exe");
+		
+		chrome = new ChromeDriver();
+		chrome.manage().window().maximize(); 
+		System.out.println("Browser launched successfully");
+
+	}
+
+	@And("Enter the URL and login credentials")
+	public void Enter_the_URL_and_login_credentials() throws Exception
+	{
+		chrome.get("http://zero.webappsecurity.com/login.html");
+		chrome.manage().timeouts().implicitlyWait(5000, TimeUnit.MILLISECONDS);
+		System.out.println("Website launched successfully");
+		
+		storeObjects objects = PageFactory.initElements(chrome, storeObjects.class);
+		
+		try
+		{
+			objects.logintest();
+			
+		}
+		
+		catch(Exception Exp)
+		{
+			Exp.printStackTrace();
+			System.out.println("Login failed");
+		}
+		
+	}
+
+	@Then("Check transaction page appears")
+	public void check_transaction_page_appears() 
+	{
+		storeObjects objects = PageFactory.initElements(chrome, storeObjects.class);
+		objects.transactionPage();
+	}
+
+	@When("Clicking on transfer funds tab")
+	public void clicking_on_transfer_funds_tab() 
+	{
+		storeObjects objects = PageFactory.initElements(chrome, storeObjects.class);
+		objects.transferFunds();
+
+	}
+
+	@Then("Check if the transfer money and make payments page appears")
+	public void check_if_the_transfer_money_and_make_payments_page_appears() 
+	{
+		storeObjects objects = PageFactory.initElements(chrome, storeObjects.class);
+		objects.transferFundsPageAppears();
+
+	}
+
+	@Then("Check if all the accounts are listed in From drop down")
+	public void check_if_all_the_accounts_are_listed_in_From_drop_down() throws Exception 
+	{
+
+		FileInputStream ReadData = new FileInputStream("M:\\SDET Training\\SeleniumCucumber.xlsx");
+		book1 = new XSSFWorkbook(ReadData);
+		
+		Sheet sh = book1.getSheetAt(0);
+		  
+	    Row r = sh.getRow(0);
+		  
+		int rowNum = sh.getLastRowNum();
+		System.out.println("Number of Rows = " + rowNum);
+		int colNum = r.getLastCellNum();
+		System.out.println("Number of Columns = " + colNum);
+		
+		for(int row=0;row<=rowNum;row++)
+		  {
+			  Row r1 = sh.getRow(row);
+			  
+			  for(int cell=0; cell<colNum; cell++)
+			  {
+				  String Value = r1.getCell(cell).getStringCellValue();
+				  System.out.println("The Excel Value is : " + Value);
+				  List<WebElement> FromAccTypes = chrome.findElementsById("tf_fromAccountId");
+				  String FromAccountList = FromAccTypes.get(0).getText();
+				  System.out.println("Acc types are " + FromAccountList );
+				  Assert.assertTrue(FromAccountList.contains(Value));
+		
+			  }
+			  
+		  }	  
+				  	
+	}
+
+	@Then("Check if all the accounts are listed in To drop down")
+	public void check_if_all_the_accounts_are_listed_in_To_drop_down() throws Exception 
+	{
+		
+		FileInputStream ReadData = new FileInputStream("M:\\SDET Training\\SeleniumCucumber.xlsx");
+		book1 = new XSSFWorkbook(ReadData);
+		
+		Sheet sh1 = book1.getSheetAt(1);
+		  
+	    Row r = sh1.getRow(0);
+		  
+		int rowNum = sh1.getLastRowNum();
+		System.out.println("Number of Rows = " + rowNum);
+		int colNum = r.getLastCellNum();
+		System.out.println("Number of Columns = " + colNum);
+		
+		for(int row=0;row<=rowNum;row++)
+		  {
+			  Row r1 = sh1.getRow(row);
+			  
+			  for(int cell=0; cell<colNum; cell++)
+			  {
+				  String Value = r1.getCell(cell).getStringCellValue();
+				  System.out.println("The Excel Value is : " + Value);
+				  List<WebElement> ToAccTypes = chrome.findElementsById("tf_toAccountId");
+				  String ToAccountList = ToAccTypes.get(0).getText();
+				  System.out.println("Acc types are " + ToAccountList );
+				  Assert.assertTrue(ToAccountList.contains(Value));
+		
+			  }
+			  
+		  }	  
+
+	}
+
+	@When("Select the From Account")
+	public void select_the_From_Account() 
+	{
+		
+		chrome.findElement(By.xpath("//*[@id=\"tf_fromAccountId\"]/option[4]")).click();
+
+	}
+
+	@When("Select the To Account")
+	public void select_the_To_Account() 
+	{
+		chrome.findElement(By.xpath("//*[@id=\"tf_toAccountId\"]/option[5]")).click();
+
+	}
+
+	@When("Enter the amount and description")
+	public void enter_the_amount_and_description() 
+	{
+		chrome.findElement(By.id("tf_amount")).sendKeys("100");
+		chrome.findElement(By.id("tf_description")).sendKeys("EndToEnd Test");	
+	}
+
+	@When("Click on Continue button")
+	public void click_on_Continue_button() 
+	{
+		
+		chrome.findElement(By.xpath("//*[@id=\'btn_submit\']")).click();
+		WebDriverWait wait = new WebDriverWait(chrome,10);
+		
+	}
+
+	@And("Click on Submit")
+	public void click_on_Submit() 
+	{
+		
+		chrome.findElement(By.xpath("//*[@id=\'btn_submit\']")).click();
+		System.out.println("Successfully submitted the trasfer of funds");
+
+	}
+
+	@Then("Check if confirmation page is displayed with message")
+	public void check_if_confirmation_page_is_displayed_with_message() 
+	{
+		
+		storeObjects objects = PageFactory.initElements(chrome, storeObjects.class);
+		objects.transferFundsConfirmation();
+
+	}
+
+	@When("logout and close the browser")
+	public void logout_and_close_the_browser() 
+	{
+		chrome.findElement(By.xpath("//*[@id=\"settingsBox\"]/ul/li[3]/a")).click();
+		
+
+	}
+
+
+}

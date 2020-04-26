@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CommitComments>	<CommitComment>Final commit for scm poll settings</CommitComment>
+	<CommitComment>Committing after adding the poll for scm setting in jenkins</CommitComment>
+	<CommitComment>Checking for execution with visual svn</CommitComment>
+	<CommitComment>Corrected the runner class</CommitComment>
+	<CommitComment>Second Commit</CommitComment>
+	<CommitComment>Annotation depends on method corrected</CommitComment>
+	<CommitComment>Second commit - opening the browser</CommitComment>
+	<CommitComment>Commented the POM import statement</CommitComment>
+	<CommitComment>commit number 4 after adding the dependency</CommitComment>
+	<CommitComment>Removed the print statement of logged out</CommitComment>
+</CommitComments>

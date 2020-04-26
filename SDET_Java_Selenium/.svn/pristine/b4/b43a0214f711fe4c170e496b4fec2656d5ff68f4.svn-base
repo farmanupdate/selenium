@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite parallel="false" name="Suite">
+  <test name="Test">
+  
+  <parameter name="un" value = "txtUsername"/>
+  <parameter name="pwd" value = "txtPassword"/>
+  <parameter name="Login" value = "Submit"/>
+  <parameter name="wel" value = "welcome"/>
+  <parameter name="Logout" value = "//*[@id='welcome-menu']/ul/li[2]/a"/>
+  
+    <classes>
+      <class name="SeleniumJava.Workingwithxml"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

@@ -1,0 +1,12 @@
+package junitPackage;
+
+public class junitnormalclass 
+{
+	
+	public void add(int a, int b)
+	{
+		return a+b;
+	}
+	
+
+}

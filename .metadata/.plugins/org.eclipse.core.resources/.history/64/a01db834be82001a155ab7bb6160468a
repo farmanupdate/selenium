@@ -1,0 +1,8 @@
+package runOrangeHRMPages;
+
+import io.cucumber.junit.CucumberOptions;
+
+@CucumberOptions(features="Framework", glue= {"runOrangeHRMPages"}, plugin = {"html:ResultsNew","pretty"}, monochrome = true )
+public class runnerClass {
+
+}

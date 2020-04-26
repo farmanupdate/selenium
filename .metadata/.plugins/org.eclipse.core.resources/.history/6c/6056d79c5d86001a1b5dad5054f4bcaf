@@ -1,0 +1,47 @@
+package EndtoEndTesting;
+
+import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.FindBy;
+
+import POMTest.storePageObjects;
+
+public class storeObjects {
+	
+	static ChromeDriver chrome;
+	
+	
+	@FindBy(name="user_login")
+	WebElement un;
+	
+	@FindBy(name="user_password")
+	WebElement pass;
+	
+	@FindBy(name="submit")
+	WebElement Lbtn;
+	
+	@FindBy(id="settingsBox")
+	WebElement HPage;
+	
+	@FindBy(id="transfer_funds_tab")
+	WebElement TransferBtn;
+	
+	public void logintest()
+	{
+		un.sendKeys("username");
+		pass.sendKeys("password");
+		Lbtn.click();
+		
+	}
+	
+	public void transactionPage()
+	{
+		//Boolean HomePage = "Yes";
+		String HomePageActual = chrome.getTitle();
+		System.out.println("Home page landed is " +HomePageActual);
+		//Assert.assertEquals(HomePage,HomePageActual);
+	}
+
+}

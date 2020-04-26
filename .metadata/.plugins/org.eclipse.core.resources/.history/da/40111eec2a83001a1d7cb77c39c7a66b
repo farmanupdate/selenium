@@ -1,0 +1,24 @@
+package EndtoEndTesting;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+public class storeObjects {
+	
+	@FindBy(name="user_login")
+	WebElement un;
+	
+	@FindBy(name="user_password")
+	WebElement pass;
+	
+	@FindBy(name="submit")
+	WebElement Lbtn;
+	
+	public void logintest()
+	{
+		un.sendKeys("username");
+		pass.sendKeys("password");
+		Lbtn.click();
+	}
+
+}
